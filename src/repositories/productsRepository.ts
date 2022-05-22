@@ -8,3 +8,13 @@ export async function getDrinksList() {
     });
     return drinks;
 }
+
+export async function getDrink(name: string) {
+	const drink = await prisma.products.findMany({
+        where: {
+            categoryId: 1,
+            name: name
+        }
+    });
+    return drink;
+}
